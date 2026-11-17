@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sabor de Barrio, cocina casera y delivery en Morón</title>
+<meta name="description" content="Pizzas, hamburguesas y empanadas. Armá tu pedido en la web y envialo por WhatsApp en un minuto.">
+<meta property="og:title" content="Sabor de Barrio, cocina casera y delivery en Morón">
+<meta property="og:description" content="Pizzas, hamburguesas y empanadas. Armá tu pedido en la web y envialo por WhatsApp en un minuto.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="https://pumpalabs-ar.github.io/Demo-gastro/">
+<meta name="theme-color" content="#C8312B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8312B;--gold:#F2B632;--bg:#FFFDF8;--ink:#1C1B19;--mut:#6B665C;--line:#D9D2C2;--chip:#F6E9C8;--green:#123F36;--awn:#FBF1D6}
+@media(prefers-color-scheme:dark){:root{--bg:#121A17;--ink:#F3EFE4;--mut:#A6A194;--line:#34403B;--chip:#22312B;--awn:#EADFC2}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.5 Figtree,system-ui,sans-serif;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.demo{background:var(--green);color:#fff;font-size:.85rem;text-align:center;padding:calc(8px + env(safe-area-inset-top)) 12px 8px}
+.demo a{color:var(--gold);font-weight:600}
+.toldo{position:relative;height:56px;background:repeating-linear-gradient(90deg,var(--red) 0 36px,var(--awn) 36px 72px);filter:drop-shadow(0 4px 0 rgba(0,0,0,.14));animation:caer .7s cubic-bezier(.3,1.4,.5,1) both}
+.toldo::after{content:"";position:absolute;left:0;right:0;top:100%;height:18px;background:repeating-linear-gradient(90deg,var(--red) 0 36px,var(--awn) 36px 72px);-webkit-mask:radial-gradient(circle at 18px 0,#000 17.5px,#0000 18.5px) 0 0/36px 18px repeat-x;mask:radial-gradient(circle at 18px 0,#000 17.5px,#0000 18.5px) 0 0/36px 18px repeat-x}
+@keyframes caer{from{transform:translateY(-110%)}to{transform:none}}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px}
+.hero{padding-top:44px}
+h1{margin:0;font:800 clamp(2.8rem,13vw,4.8rem)/.92 "Bricolage Grotesque",Figtree,sans-serif;letter-spacing:-.03em}
+.lema{margin:12px 0 18px;font-size:1.15rem;color:var(--mut);max-width:30ch}
+.estado{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--chip);font-weight:600;font-size:.9rem}
+.estado::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--mut)}
+.estado.on::before{background:#2E9E5B}
+.info{margin:22px 0 0;display:grid;gap:6px;font-size:.95rem}
+.info b{font-weight:600}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:28px;display:flex;gap:6px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;padding:16px 12px 12px;text-decoration:none;color:var(--mut);font-weight:600;border-bottom:3px solid transparent}
+nav a.act{color:var(--ink);border-color:var(--gold)}
+section{padding-top:34px}
+h2{margin:0 0 6px;font:800 1.9rem/1 "Bricolage Grotesque",Figtree,sans-serif;letter-spacing:-.02em}
+.row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px dashed var(--line)}
+.chip{width:48px;height:48px;border-radius:50%;background:var(--chip);display:grid;place-items:center;font-size:1.6rem}
+.n{display:flex;align-items:baseline;gap:8px}
+.n b{font-weight:600}
+.n i{flex:1;min-width:12px;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.p{font:800 1.05rem "Bricolage Grotesque",Figtree,sans-serif}
+.d{margin:2px 0 0;color:var(--mut);font-size:.9rem;line-height:1.35}
+.ctl{min-width:92px;display:flex;justify-content:flex-end}
+.add{border:0;border-radius:999px;background:var(--gold);color:#1C1B19;font-weight:600;padding:9px 16px;cursor:pointer}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;font-size:1.2rem;line-height:1;cursor:pointer}
+.step output{min-width:20px;text-align:center;font-weight:600}
+.pie{margin-top:48px;padding:26px 0 8px;border-top:1px solid var(--line);font-size:.9rem;color:var(--mut)}
+.pie a{color:var(--ink)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:8;transform:translateY(130%);transition:transform .35s cubic-bezier(.3,1.2,.5,1);padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+.bar.on{transform:none}
+.bar button{width:100%;max-width:616px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;border:0;border-radius:16px;background:var(--gold);color:#1C1B19;font-weight:600;font-size:1.05rem;padding:16px 20px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.18)}
+dialog{width:100%;max-width:560px;margin:auto auto 0;border:0;border-radius:22px 22px 0 0;background:var(--bg);color:var(--ink);padding:22px 18px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+dialog[open]{animation:sube .3s ease-out}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+@keyframes sube{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.lin{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.lin span{flex:1}
+.tot{display:flex;justify-content:space-between;font:800 1.3rem "Bricolage Grotesque",Figtree,sans-serif;padding:14px 0}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input[type=text],textarea{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;background:transparent}
+.modo{display:flex;gap:10px;margin-top:12px}
+.modo label{flex:1;margin:0;display:flex;gap:8px;align-items:center;border:1.5px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;font-weight:600}
+#err{color:#C8312B;font-weight:600;min-height:1.4em;margin:8px 0 0}
+@media(prefers-color-scheme:dark){#err{color:#FF8A80}}
+.env{width:100%;border:0;border-radius:14px;background:#25D366;color:#000;font-weight:800;font-size:1.05rem;padding:16px;margin-top:6px;cursor:pointer}
+.cerrar{width:100%;background:none;border:0;padding:14px;margin-top:4px;color:var(--mut);font-weight:600;cursor:pointer}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="demo">Demo de ejemplo armada por PUMPALABS. <a href="https://wa.me/5491133868669?text=Hola%20Diego%2C%20vi%20la%20demo%20de%20gastronom%C3%ADa%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20comercio.">¿Querés una web así para tu comercio?</a></div>
+<header class="toldo" aria-hidden="true"></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Sabor de Barrio</h1>
+    <p class="lema">Cocina casera y delivery en Morón.</p>
+    <span class="estado" id="estado">Mirando el horario…</span>
+    <div class="info">
+      <div><b>Horario:</b> martes a domingo, de 12 a 23 h</div>
+      <div><b>Pagos:</b> efectivo y transferencia</div>
+      <div><b>Delivery:</b> Morón, Haedo y El Palomar</div>
+    </div>
+  </div>
+</main>
+
+<nav id="nav" aria-label="Categorías"></nav>
+<div class="wrap" id="menu"></div>
+
+<footer class="wrap pie">
+  Morón centro (dirección de ejemplo). <a href="https://www.google.com/maps/search/?api=1&query=Mor%C3%B3n%20centro%2C%20Buenos%20Aires">Cómo llegar</a><br>
+  Precios y zonas de ejemplo, se ajustan a cada local.
+</footer>
+
+<div class="bar" id="bar"><button id="ver" type="button"><span id="cnt">Ver pedido</span><span id="sum">$0</span></button></div>
+
+<dialog id="sheet" aria-labelledby="ttl">
+  <h2 id="ttl">Tu pedido</h2>
+  <div id="lines"></div>
+  <div class="tot"><span>Total</span><span id="tot">$0</span></div>
+  <label for="nom">Tu nombre</label>
+  <input type="text" id="nom" autocomplete="name">
+  <div class="modo">
+    <label><input type="radio" name="modo" id="ret" checked> Retiro</label>
+    <label><input type="radio" name="modo" id="del"> Delivery</label>
+  </div>
+  <div id="dirbox" hidden>
+    <label for="dir">Dirección y entre calles</label>
+    <input type="text" id="dir" autocomplete="street-address">
+  </div>
+  <label for="nota">Aclaraciones (opcional)</label>
+  <textarea id="nota" rows="2"></textarea>
+  <p id="err" role="alert"></p>
+  <button class="env" id="send" type="button">Enviar pedido por WhatsApp</button>
+  <button class="cerrar" id="cerrar" type="button">Seguir pidiendo</button>
+</dialog>
+
+<script>
+const NUM="5491133868669";
+const MENU=[
+{c:"Pizzas",i:[["Muzzarella","🍕","Salsa de tomate, muzzarella y aceitunas.",9500],["Napolitana","🍅","Muzzarella, tomate fresco, ajo y albahaca.",10800],["Fugazzeta","🧅","Cebolla dorada y doble queso.",11200]]},
+{c:"Hamburguesas",i:[["Clásica","🍔","Carne smash, cheddar, pickles y salsa de la casa.",8900],["Doble bacon","🥓","Doble carne, panceta crocante y cheddar.",11500],["Crispy","🍗","Pollo crocante, lechuga y mayo ahumada.",9800]]},
+{c:"Empanadas",i:[["Carne cortada a cuchillo","🥟","Jugosas, con aceituna y huevo.",1800],["Jamón y queso","🧀","Clásicas, bien fundidas.",1700],["Humita","🌽","Choclo cremoso y cebolla de verdeo.",1700]]},
+{c:"Postres",i:[["Flan casero","🍮","Con dulce de leche y crema.",4200],["Brownie","🍫","Tibio, con helado de crema.",4800]]},
+{c:"Bebidas",i:[["Limonada","🍋","Con menta y jengibre.",3200],["Gaseosa 1,5 L","🥤","Línea cola, bien fría.",3800]]}
+];
+const $=s=>document.querySelector(s);
+const fmt=n=>"$"+n.toLocaleString("es-AR");
+let k=0;MENU.forEach(c=>c.i=c.i.map(a=>({id:k++,n:a[0],e:a[1],d:a[2],p:a[3]})));
+const all=MENU.flatMap(c=>c.i), qty={};
+const total=()=>all.reduce((s,x)=>s+(qty[x.id]||0)*x.p,0);
+const count=()=>all.reduce((s,x)=>s+(qty[x.id]||0),0);
+
+$("#nav").innerHTML=MENU.map((c,j)=>`<a href="#c${j}">${c.c}</a>`).join("");
+$("#menu").innerHTML=MENU.map((c,j)=>`<section id="c${j}"><h2>${c.c}</h2>${c.i.map(x=>`
+<article class="row"><span class="chip" aria-hidden="true">${x.e}</span>
+<div><div class="n"><b>${x.n}</b><i></i><span class="p">${fmt(x.p)}</span></div><p class="d">${x.d}</p></div>
+<div class="ctl" id="ctl${x.id}"></div></article>`).join("")}</section>`).join("");
+
+function ctl(x){
+  const q=qty[x.id]||0;
+  $("#ctl"+x.id).innerHTML=q
+   ?`<div class="step"><button data-id="${x.id}" data-d="-1" aria-label="Quitar uno de ${x.n}">−</button><output>${q}</output><button data-id="${x.id}" data-d="1" aria-label="Sumar uno de ${x.n}">+</button></div>`
+   :`<button class="add" data-id="${x.id}" data-d="1">Agregar</button>`;
+}
+all.forEach(ctl);
+
+function pintar(){
+  const n=count();
+  $("#bar").classList.toggle("on",n>0);
+  $("#cnt").textContent=`Ver pedido (${n})`;
+  $("#sum").textContent=fmt(total());
+  $("#tot").textContent=fmt(total());
+  $("#lines").innerHTML=all.filter(x=>qty[x.id]).map(x=>`<div class="lin"><span>${x.n}</span>
+   <div class="step"><button data-id="${x.id}" data-d="-1" aria-label="Quitar uno de ${x.n}">−</button><output>${qty[x.id]}</output><button data-id="${x.id}" data-d="1" aria-label="Sumar uno de ${x.n}">+</button></div>
+   <b>${fmt(qty[x.id]*x.p)}</b></div>`).join("");
+  if(!n&&$("#sheet").open)$("#sheet").close();
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-d]");if(!b)return;
+  const x=all[+b.dataset.id];
+  qty[x.id]=Math.max(0,(qty[x.id]||0)+(+b.dataset.d));
+  ctl(x);pintar();
+});
+$("#ver").onclick=()=>$("#sheet").showModal();
+$("#cerrar").onclick=()=>$("#sheet").close();
+[$("#ret"),$("#del")].forEach(r=>r.onchange=()=>{$("#dirbox").hidden=!$("#del").checked});
+
+$("#send").onclick=()=>{
+  const nom=$("#nom").value.trim(),dl=$("#del").checked,dir=$("#dir").value.trim(),nota=$("#nota").value.trim(),err=$("#err");
+  err.textContent="";
+  if(!nom){err.textContent="Escribí tu nombre para enviar el pedido.";$("#nom").focus();return}
+  if(dl&&!dir){err.textContent="Escribí tu dirección para el delivery.";$("#dir").focus();return}
+  const lin=all.filter(x=>qty[x.id]).map(x=>`• ${qty[x.id]} x ${x.n} (${fmt(qty[x.id]*x.p)})`);
+  const msg=`Hola, quiero hacer un pedido:\n${lin.join("\n")}\nTotal: ${fmt(total())}\nNombre: ${nom}\n${dl?"Delivery a: "+dir:"Retiro en el local"}${nota?"\nAclaraciones: "+nota:""}`;
+  window.open(`https://wa.me/${NUM}?text=${encodeURIComponent(msg)}`,"_blank","noopener");
+};
+
+(function(){
+  const d=new Date(),h=d.getHours(),abierto=d.getDay()!==1&&h>=12&&h<23,el=$("#estado");
+  el.textContent=abierto?"Abierto hasta las 23 h":"Cerrado ahora, abre de martes a domingo desde las 12 h";
+  el.classList.toggle("on",abierto);
+})();
+
+const links=[...document.querySelectorAll("#nav a")],nav=$("#nav");
+const io=new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting)return;
+  links.forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+en.target.id));
+  const a=nav.querySelector(".act");
+  if(a)nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.clientWidth/2,behavior:"smooth"});
+}),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("#menu section").forEach(s=>io.observe(s));
+</script>
+</body>
+                                         </html>
+                                         
